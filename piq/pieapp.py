@@ -74,7 +74,7 @@ class PieAPPModel(nn.Module):
         x7 = F.relu(self.conv7(self.pool(F.relu(self.conv6(x5)))))
         # conv8 -> relu -> pool -> conv9 -> relu
         x9 = F.relu(self.conv9(self.pool(F.relu(self.conv8(x7)))))
-        # conv10 -> relu -> pool1-> conv11 -> relU
+        # conv10 -> relu -> pool -> conv11 -> relu
         x11 = self.flatten(F.relu(self.conv11(self.pool(F.relu(self.conv10(x9))))))
         # flatten and concatenate
         features = torch.cat((self.flatten(x3), self.flatten(x5), self.flatten(x7), self.flatten(x9), x11), dim=1)
